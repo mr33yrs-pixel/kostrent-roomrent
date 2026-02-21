@@ -50,13 +50,16 @@ npm run build
 php artisan serve
 ```
 
-## Default Admin Credentials
+## Admin Setup
 
-After running `php artisan db:seed`:
+After running migrations, create an admin user via tinker:
 
-- **Email**: admin@jaipremiumkost.com
-- **Password**: password (default Laravel factory password)
+```bash
+php artisan tinker
+>>> \App\Models\User::create(['name'=>'Admin','email'=>'your@email.com','password'=>bcrypt('your-password')]);
+```
 
+Then add the same email to `ADMIN_EMAILS` in your `.env` file.
 Access the admin panel at: `http://localhost:8000/admin`
 
 ## Environment Variables
