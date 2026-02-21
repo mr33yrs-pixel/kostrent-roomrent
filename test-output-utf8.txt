@@ -1,0 +1,148 @@
+﻿
+   PASS  Tests\Unit\ExampleTest
+  Γ£ô that true is true
+
+   FAIL  Tests\Feature\ExampleTest
+  Γ¿» the application returns a successful response
+
+   FAIL  Tests\Feature\LogVisitJobTest
+  Γ¿» visiting home page dispatches log visit job
+  Γ¿» log visit job inserts to database
+
+   FAIL  Tests\Feature\RoomPaginationTest
+  Γ¿» rooms index uses pagination for premium and standard rooms
+
+   FAIL  Tests\Feature\SettingTest
+  Γ¿» settings are cached
+  Γ¿» default value is returned
+  Γ¿» cache is invalidated on save
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\ExampleTest > the application returns a successful response  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230Γûò     }
+    231Γûò 
+    232Γûò     public function confirm(string $question, bool $default = true): bool
+    233Γûò     {
+  Γ₧£ 234Γûò         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235Γûò     }
+    236Γûò 
+    237Γûò     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238Γûò     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\LogVisitJobTest > visiting home page dispatches log visit job  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230Γûò     }
+    231Γûò 
+    232Γûò     public function confirm(string $question, bool $default = true): bool
+    233Γûò     {
+  Γ₧£ 234Γûò         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235Γûò     }
+    236Γûò 
+    237Γûò     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238Γûò     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\LogVisitJobTest > log visit job inserts to database  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230Γûò     }
+    231Γûò 
+    232Γûò     public function confirm(string $question, bool $default = true): bool
+    233Γûò     {
+  Γ₧£ 234Γûò         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235Γûò     }
+    236Γûò 
+    237Γûò     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238Γûò     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\RoomPaginationTest > rooms index uses pagination for premium and standard rooms  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230Γûò     }
+    231Γûò 
+    232Γûò     public function confirm(string $question, bool $default = true): bool
+    233Γûò     {
+  Γ₧£ 234Γûò         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235Γûò     }
+    236Γûò 
+    237Γûò     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238Γûò     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\SettingTest > settings are cached  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230Γûò     }
+    231Γûò 
+    232Γûò     public function confirm(string $question, bool $default = true): bool
+    233Γûò     {
+  Γ₧£ 234Γûò         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235Γûò     }
+    236Γûò 
+    237Γûò     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238Γûò     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\SettingTest > default value is returned  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230Γûò     }
+    231Γûò 
+    232Γûò     public function confirm(string $question, bool $default = true): bool
+    233Γûò     {
+  Γ₧£ 234Γûò         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235Γûò     }
+    236Γûò 
+    237Γûò     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238Γûò     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+  ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ  
+   FAILED  Tests\Feature\SettingTest > cache is invalidated on save  BadMethodCallException   
+  Received Mockery_1_Illuminate_Console_OutputStyle::askQuestion(), but no expectations were specified
+
+  at vendor\symfony\console\Style\SymfonyStyle.php:234
+    230Γûò     }
+    231Γûò 
+    232Γûò     public function confirm(string $question, bool $default = true): bool
+    233Γûò     {
+  Γ₧£ 234Γûò         return $this->askQuestion(new ConfirmationQuestion($question, $default));
+    235Γûò     }
+    236Γûò 
+    237Γûò     public function choice(string $question, array $choices, mixed $default = null, bool $multiSelect = false): mixed
+    238Γûò     {
+
+  1   vendor\symfony\console\Style\SymfonyStyle.php:234
+  2   vendor\laravel\framework\src\Illuminate\Console\View\Components\Confirm.php:17
+
+
+  Tests:    7 failed, 1 passed (1 assertions)
+  Duration: 3.16s
+

@@ -1,0 +1,31 @@
+/.phpunit.cache
+/node_modules
+# /public/build  -- included for Hostinger deploy (no npm on shared hosting)
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+.env
+.env.backup
+.env.production
+.env.testing
+.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+auth.json
+npm-debug.log
+yarn-error.log
+/.fleet
+/.idea
+/.vscode
+admin_password.txt
+last_logs.txt
+recent_errors.txt
+error.md
+
+# Dev artifacts
+*.log
+debug.md
+backups/
+test-results*.txt
+setting-test.log

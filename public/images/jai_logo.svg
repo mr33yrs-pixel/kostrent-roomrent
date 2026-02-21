@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="100" viewBox="0 0 300 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- House Icon -->
+    <path d="M50 20 L20 50 V90 H40 V60 H60 V90 H80 V50 L50 20 Z" fill="#F6E1C3" stroke="#F6E1C3" stroke-width="2"/>
+    
+    <!-- Leaf Element (Subtle, organic shape) -->
+    <path d="M80 50 Q90 40 85 30 Q75 35 80 50 Z" fill="#7C9070"/>
+    <path d="M82 48 Q95 35 88 22 Q72 30 82 48 Z" fill="#7C9070" opacity="0.8"/>
+
+    <!-- Text: JAI -->
+    <text x="100" y="60" font-family="serif" font-weight="bold" font-size="48" fill="#F6E1C3">JAI</text>
+    
+    <!-- Text: Premium Kost -->
+    <text x="105" y="85" font-family="sans-serif" font-weight="normal" font-size="14" letter-spacing="3" fill="#7C9070" text-transform="uppercase">PREMIUM KOST</text>
+</svg>
