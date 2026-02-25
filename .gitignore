@@ -28,4 +28,5 @@ error.md
 debug.md
 backups/
 test-results*.txt
+test-output*.txt
 setting-test.log
