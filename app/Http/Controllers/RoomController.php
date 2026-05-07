@@ -10,30 +10,29 @@ class RoomController extends Controller
 {
     /**
      * Display a listing of available rooms, grouped by type.
-     * Cached for 5 minutes since room data changes infrequently.
+     * Single cache key consolidates 3 former cache reads into 1.
      */
     public function index(): View
     {
-        $premiumPage = request()->get('premium_page', 1);
-        $standardPage = request()->get('standard_page', 1);
+        $pp = (int) request()->get('premium_page', 1);
+        $sp = (int) request()->get('standard_page', 1);
+        $ep = (int) request()->get('economic_page', 1);
 
-        $premiumRooms = Cache::remember("rooms.premium.page.{$premiumPage}", 300, function () {
-            return Room::query()
-                ->select(['id', 'name', 'slug', 'type', 'price', 'price_6_months', 'price_yearly', 'images', 'is_available'])
-                ->where('type', 'premium')
-                ->latest()
-                ->paginate(6, ['*'], 'premium_page');
+        $cols = ['id', 'name', 'slug', 'type', 'price', 'price_6_months', 'price_yearly', 'images', 'is_available'];
+
+        $data = Cache::remember("rooms.all.{$pp}.{$sp}.{$ep}", 300, function () use ($pp, $sp, $ep, $cols) {
+            return [
+                'premium'  => Room::where('type', 'premium')->select($cols)->latest()->paginate(6, ['*'], 'premium_page', $pp),
+                'standard' => Room::where('type', 'standard')->select($cols)->latest()->paginate(6, ['*'], 'standard_page', $sp),
+                'economic' => Room::where('type', 'economic')->select($cols)->latest()->paginate(6, ['*'], 'economic_page', $ep),
+            ];
         });
 
-        $standardRooms = Cache::remember("rooms.standard.page.{$standardPage}", 300, function () {
-            return Room::query()
-                ->select(['id', 'name', 'slug', 'type', 'price', 'price_6_months', 'price_yearly', 'images', 'is_available'])
-                ->where('type', 'standard')
-                ->latest()
-                ->paginate(6, ['*'], 'standard_page');
-        });
-
-        return view('rooms', compact('premiumRooms', 'standardRooms'));
+        return view('rooms', [
+            'premiumRooms'  => $data['premium'],
+            'standardRooms' => $data['standard'],
+            'economicRooms' => $data['economic'],
+        ]);
     }
 
     /**

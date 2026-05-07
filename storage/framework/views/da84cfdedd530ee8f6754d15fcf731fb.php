@@ -8,16 +8,51 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="default">
     <link rel="apple-touch-icon" href="<?php echo e(asset('images/apple-touch-icon.png')); ?>">
-    <meta name="description" content="<?php echo e($metaDescription ?? 'JaiPremiumKost - Premium boarding house rooms with comfortable living experience.'); ?>">
+    <meta name="description" content="<?php echo e($metaDescription ?? 'Jai\'s House - Kost Putri eksklusif dan nyaman di Solo. Menyediakan kost putri murah, ber-AC, sewa bulanan, cocok untuk mahasiswi dan karyawati.'); ?>">
+    <meta name="keywords" content="<?php echo e($metaKeywords ?? 'Kost Putri, Kost Putri Solo, Kost Putri AC, Kost Putri Murah, Kost Putri Bulanan, Kost Karyawan, Kost Mahasiswi Solo, Sewa Kamar Kost Solo, Jai\'s House, Kos Kosan Putri'); ?>">
+    <meta name="author" content="Jai's House">
     
-    <title><?php echo e($title ?? 'JaiPremiumKost'); ?></title>
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="<?php echo e(url()->current()); ?>">
+    <meta property="og:title" content="<?php echo e($title ?? 'Jai\'s House - Kost Putri Solo'); ?>">
+    <meta property="og:description" content="<?php echo e($metaDescription ?? 'Jai\'s House - Kost Putri eksklusif dan nyaman di Solo. Menyediakan kost putri murah, ber-AC, sewa bulanan, cocok untuk mahasiswi dan karyawati.'); ?>">
+    <meta property="og:image" content="<?php echo e(asset('images/jai_logo.svg')); ?>">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="<?php echo e(url()->current()); ?>">
+    <meta property="twitter:title" content="<?php echo e($title ?? 'Jai\'s House - Kost Putri Solo'); ?>">
+    <meta property="twitter:description" content="<?php echo e($metaDescription ?? 'Jai\'s House - Kost Putri eksklusif dan nyaman di Solo. Menyediakan kost putri murah, ber-AC, sewa bulanan, cocok untuk mahasiswi dan karyawati.'); ?>">
+    <meta property="twitter:image" content="<?php echo e(asset('images/jai_logo.svg')); ?>">
+
+    <title><?php echo e($title ?? 'Jai\'s House'); ?></title>
+
+    <!-- Structured Data (JSON-LD) for LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Jai's House",
+      "image": "<?php echo e(asset('images/jai_logo.svg')); ?>",
+      "@id": "<?php echo e(url('/')); ?>",
+      "url": "<?php echo e(url('/')); ?>",
+      "telephone": "<?php echo e($siteSettings['contact_phone'] ?? ''); ?>",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "<?php echo e($siteSettings['contact_address'] ?? 'Solo'); ?>",
+        "addressLocality": "Surakarta",
+        "addressRegion": "Jawa Tengah",
+        "addressCountry": "ID"
+      },
+      "priceRange": "$$",
+      "description": "Jai's House menyediakan kost putri eksklusif, nyaman, murah, ber-AC, sewa bulanan untuk mahasiswi dan karyawati di Solo."
+    }
+    </script>
     
     <link rel="manifest" href="<?php echo e(asset('manifest.json')); ?>">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <!-- Fonts — self-hosted via @fontsource/inter (loaded through app.css via Vite) -->
 
     <?php echo app('Illuminate\Foundation\Vite')(['resources/css/app.css', 'resources/js/app.js']); ?>
 
@@ -42,7 +77,7 @@
                     <a href="<?php echo e(route('home')); ?>" class="flex-shrink-0 flex items-center gap-3 group">
                         <!-- House Icon -->
                         <!-- Logo Image -->
-                        <img src="<?php echo e(asset('images/jai_logo.svg')); ?>" alt="JAI Premium Kost" class="h-12 w-auto">
+                        <img src="<?php echo e(asset('images/jai_logo.svg')); ?>" alt="Jai's House" class="h-12 w-auto">
                     </a>
                 </div>
 
@@ -163,6 +198,19 @@
             iconClose.classList.toggle('hidden');
             iconClose.classList.toggle('block');
         }
+
+        // Lazy-load iframes (e.g. Google Maps) only when scrolled into view
+        document.addEventListener('DOMContentLoaded', function () {
+            var obs = new IntersectionObserver(function (entries) {
+                entries.forEach(function (e) {
+                    if (e.isIntersecting) {
+                        e.target.src = e.target.dataset.src;
+                        obs.unobserve(e.target);
+                    }
+                });
+            }, { rootMargin: '200px' });
+            document.querySelectorAll('iframe.lazy-iframe').forEach(function (f) { obs.observe(f); });
+        });
     </script>
 </body>
 </html>

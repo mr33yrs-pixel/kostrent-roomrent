@@ -1,4 +1,4 @@
-<x-layouts.app :title="'JaiPremiumKost - ' . __('messages.nav.home')">
+<x-layouts.app :title="'Jai\'s House - ' . __('messages.nav.home')">
     <!-- Hero Section -->
     <div class="relative bg-pastel-peach/20 overflow-hidden" 
          x-data="{ 
@@ -143,13 +143,13 @@
                 <p class="mt-4 text-gray-500">{{ __('messages.home.location_desc') }}</p>
             </div>
             <div class="rounded-3xl overflow-hidden shadow-lg h-96 bg-gray-200">
-                <iframe 
-                    src="{{ \App\Models\Setting::getByKey('google_maps_embed_url', config('app.google_maps_embed_url')) }}" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy">
+                <iframe
+                    data-src="{{ $mapsUrl }}"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    class="lazy-iframe w-full h-full">
                 </iframe>
             </div>
         </div>

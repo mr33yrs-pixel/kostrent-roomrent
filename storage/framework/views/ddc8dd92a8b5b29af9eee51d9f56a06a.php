@@ -1,13 +1,13 @@
 <?php if (isset($component)) { $__componentOriginal5863877a5171c196453bfa0bd807e410 = $component; } ?>
 <?php if (isset($attributes)) { $__attributesOriginal5863877a5171c196453bfa0bd807e410 = $attributes; } ?>
-<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.layouts.app','data' => ['title' => 'JaiPremiumKost - ' . __('messages.nav.home')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
+<?php $component = Illuminate\View\AnonymousComponent::resolve(['view' => 'components.layouts.app','data' => ['title' => 'Jai\'s House - ' . __('messages.nav.home')]] + (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag ? $attributes->all() : [])); ?>
 <?php $component->withName('layouts.app'); ?>
 <?php if ($component->shouldRender()): ?>
 <?php $__env->startComponent($component->resolveView(), $component->data()); ?>
 <?php if (isset($attributes) && $attributes instanceof Illuminate\View\ComponentAttributeBag): ?>
 <?php $attributes = $attributes->except(\Illuminate\View\AnonymousComponent::ignoredParameterNames()); ?>
 <?php endif; ?>
-<?php $component->withAttributes(['title' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute('JaiPremiumKost - ' . __('messages.nav.home'))]); ?>
+<?php $component->withAttributes(['title' => \Illuminate\View\Compilers\BladeCompiler::sanitizeComponentAttribute('Jai\'s House - ' . __('messages.nav.home'))]); ?>
     <!-- Hero Section -->
     <div class="relative bg-pastel-peach/20 overflow-hidden" 
          x-data="{ 
@@ -159,13 +159,13 @@
                 <p class="mt-4 text-gray-500"><?php echo e(__('messages.home.location_desc')); ?></p>
             </div>
             <div class="rounded-3xl overflow-hidden shadow-lg h-96 bg-gray-200">
-                <iframe 
-                    src="<?php echo e(\App\Models\Setting::getByKey('google_maps_embed_url', config('app.google_maps_embed_url'))); ?>" 
-                    width="100%" 
-                    height="100%" 
-                    style="border:0;" 
-                    allowfullscreen="" 
-                    loading="lazy">
+                <iframe
+                    data-src="<?php echo e($mapsUrl); ?>"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    class="lazy-iframe w-full h-full">
                 </iframe>
             </div>
         </div>

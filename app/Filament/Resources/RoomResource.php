@@ -38,6 +38,7 @@ class RoomResource extends Resource
                             ->options([
                                 'standard' => 'Standard',
                                 'premium' => 'Premium',
+                                'economic' => 'Economic',
                             ])
                             ->required(),
                         Forms\Components\TextInput::make('price')
@@ -75,6 +76,7 @@ class RoomResource extends Resource
                         Forms\Components\FileUpload::make('images')
                             ->multiple()
                             ->image()
+                            ->acceptedFileTypes(['image/jpeg', 'image/png', 'image/webp'])
                             ->imageEditor()
                             ->directory('rooms')
                             ->maxFiles(8)
@@ -100,6 +102,7 @@ class RoomResource extends Resource
                     ->color(fn (string $state): string => match ($state) {
                         'standard' => 'gray',
                         'premium' => 'warning',
+                        'economic' => 'success',
                         default => 'gray',
                     })
                     ->searchable(),
@@ -128,6 +131,7 @@ class RoomResource extends Resource
                     ->options([
                         'standard' => 'Standard',
                         'premium' => 'Premium',
+                        'economic' => 'Economic',
                     ]),
                 Tables\Filters\TernaryFilter::make('is_available')
                     ->label('Availability'),

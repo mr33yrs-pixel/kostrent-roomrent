@@ -33,6 +33,7 @@ return [
         'subtitle' => 'Choose the perfect space that suits your style and budget.',
         'premium_collection' => 'Premium Collection',
         'standard_collection' => 'Standard Collection',
+        'economic_collection' => 'Economic Collection',
         'available' => 'Available',
         'booked' => 'Booked',
         'taken' => 'Already Taken',
@@ -41,7 +42,9 @@ return [
         'book_now' => 'Book Now',
         'no_premium' => 'No Premium rooms found.',
         'no_standard' => 'No Standard rooms found.',
+        'no_economic' => 'No Economic rooms found.',
         'view_details' => 'View Details',
+        'minimum_rent' => 'Minimum rent: 3 months',
     ],
 
     // Room Detail Page
@@ -70,7 +73,7 @@ return [
 
     // Footer
     'footer' => [
-        'copyright' => '© :year JaiPremiumKost. All rights reserved.',
+        'copyright' => '© :year Jai\'s House. All rights reserved.',
     ],
 
     // Language

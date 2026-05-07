@@ -16,22 +16,15 @@ class VisitorStatsOverview extends BaseWidget
     {
         // Cache only the raw data (arrays/scalars), NOT Stat objects.
         // Stat objects contain closures and are not serializable with file/database cache drivers.
-        $data = Cache::remember('admin_visitor_stats', 300, function () {
+        $data = Cache::remember('admin_visitor_stats', 3600, function () {
             $now = Carbon::now();
 
             return [
-                'total' => Visit::count(),
+                'total'   => Visit::count(),
                 'monthly' => Visit::where('created_at', '>=', $now->copy()->startOfMonth())->count(),
-                'unique' => Visit::distinct()->count('ip_address'),
-                'top_page' => Visit::query()
-                    ->selectRaw('url, count(*) as total')
-                    ->groupBy('url')
-                    ->orderByDesc('total')
-                    ->value('url'),
+                'unique'  => Visit::distinct()->count('ip_address'),
             ];
         });
-
-        $topPageUrl = $data['top_page'] ? (parse_url($data['top_page'], PHP_URL_PATH) ?: '/') : '-';
 
         return [
             Stat::make('Total Visits', $data['total'])

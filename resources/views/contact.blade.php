@@ -1,4 +1,4 @@
-<x-layouts.app :title="'JaiPremiumKost - ' . __('messages.nav.contact')">
+<x-layouts.app :title="'Jai\'s House - ' . __('messages.nav.contact')">
     <div class="bg-pastel-bg min-h-screen py-12 sm:py-24">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">

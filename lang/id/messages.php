@@ -33,6 +33,7 @@ return [
         'subtitle' => 'Pilih ruangan yang sesuai dengan gaya dan anggaran Anda.',
         'premium_collection' => 'Koleksi Premium',
         'standard_collection' => 'Koleksi Standar',
+        'economic_collection' => 'Koleksi Ekonomis',
         'available' => 'Tersedia',
         'booked' => 'Terisi',
         'per_month' => '/ bulan',
@@ -40,7 +41,9 @@ return [
         'book_now' => 'Pesan Sekarang',
         'no_premium' => 'Tidak ada kamar Premium.',
         'no_standard' => 'Tidak ada kamar Standar.',
+        'no_economic' => 'Tidak ada kamar Ekonomis.',
         'view_details' => 'Lihat Detail',
+        'minimum_rent' => 'Minimal sewa: 3 bulan',
     ],
 
     // Room Detail Page
@@ -68,7 +71,7 @@ return [
 
     // Footer
     'footer' => [
-        'copyright' => '© :year JaiPremiumKost. Hak cipta dilindungi.',
+        'copyright' => '© :year Jai\'s House. Hak cipta dilindungi.',
     ],
 
     // Language

@@ -25,7 +25,9 @@ class PageController extends Controller
             ]];
         }
 
-        return view('home', compact('slides'));
+        $mapsUrl = Setting::getByKey('google_maps_embed_url', config('app.google_maps_embed_url'));
+
+        return view('home', compact('slides', 'mapsUrl'));
     }
 
     /**

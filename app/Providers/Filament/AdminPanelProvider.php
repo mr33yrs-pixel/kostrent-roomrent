@@ -29,11 +29,11 @@ class AdminPanelProvider extends PanelProvider
             ->default()
             ->id('admin')
             ->path('admin')
-            ->spa()
+            // ->spa() removed — SPA mode adds unnecessary JS overhead for a small panel
             ->login()
             ->registration(false)
             ->passwordReset(false)
-            ->brandName('JAI Premium Kost')
+            ->brandName('Jai\'s House')
             ->brandLogo(asset('images/jai_logo.svg'))
             ->brandLogoHeight('3rem')
             ->favicon(asset('images/favicon.png'))
@@ -63,7 +63,7 @@ class AdminPanelProvider extends PanelProvider
                 SubstituteBindings::class,
                 DisableBladeIconComponents::class,
                 DispatchServingFilamentEvent::class,
-                'throttle:5,1',
+                'throttle:60,1',
             ])
             ->authMiddleware([
                 Authenticate::class,

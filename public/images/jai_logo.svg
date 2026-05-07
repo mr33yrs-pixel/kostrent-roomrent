@@ -7,9 +7,9 @@
     <path d="M80 50 Q90 40 85 30 Q75 35 80 50 Z" fill="#7C9070"/>
     <path d="M82 48 Q95 35 88 22 Q72 30 82 48 Z" fill="#7C9070" opacity="0.8"/>
 
-    <!-- Text: JAI -->
-    <text x="100" y="60" font-family="serif" font-weight="bold" font-size="48" fill="#F6E1C3">JAI</text>
+    <!-- Text: JAI'S -->
+    <text x="100" y="60" font-family="serif" font-weight="bold" font-size="48" fill="#F6E1C3">JAI'S</text>
     
-    <!-- Text: Premium Kost -->
-    <text x="105" y="85" font-family="sans-serif" font-weight="normal" font-size="14" letter-spacing="3" fill="#7C9070" text-transform="uppercase">PREMIUM KOST</text>
+    <!-- Text: House -->
+    <text x="105" y="85" font-family="sans-serif" font-weight="normal" font-size="14" letter-spacing="3" fill="#7C9070" text-transform="uppercase">HOUSE</text>
 </svg>

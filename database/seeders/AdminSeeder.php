@@ -17,8 +17,20 @@ class AdminSeeder extends Seeder
     {
         $password = Str::random(16);
 
+        $adminEmails = config('app.admin_emails');
+        $email = 'admin@example.com';
+        
+        if (!empty($adminEmails)) {
+            $emails = explode(',', $adminEmails);
+            $email = trim($emails[0]);
+        }
+
+        if (empty($email)) {
+            $email = 'admin@example.com';
+        }
+
         User::updateOrCreate(
-            ['email' => 'mr33yrs@gmail.com'],
+            ['email' => $email],
             [
                 'name' => 'Admin',
                 'password' => Hash::make($password),
@@ -29,15 +41,15 @@ class AdminSeeder extends Seeder
         $filePath = base_path('admin_password.txt');
         $content = "=== JaiPremiumKost Admin Credentials ===\n";
         $content .= "Generated: " . now()->format('Y-m-d H:i:s') . "\n";
-        $content .= "Email: mr33yrs@gmail.com\n";
+        $content .= "Email: {$email}\n";
         $content .= "Password: {$password}\n";
         $content .= "========================================\n";
         $content .= "DELETE THIS FILE AFTER NOTING THE PASSWORD!\n";
         file_put_contents($filePath, $content);
 
         $this->command->warn('⚠️  Admin user created with a NEW random password.');
-        $this->command->info("   Email:    mr33yrs@gmail.com");
-        $this->command->info("   Password: {$password}");
+        $this->command->info("   Email:    {$email}");
+        $this->command->info("   Password: [HIDDEN, CHECK admin_password.txt]");
         $this->command->info("   Also saved to: admin_password.txt");
         $this->command->warn('⚠️  Delete admin_password.txt after noting the password!');
     }

@@ -18,12 +18,13 @@ class Room extends Model
     protected static function booted(): void
     {
         $clearRoomCache = function () {
-            // Clear only room pagination cache keys instead of entire application cache
-            $prefixes = ['rooms.premium.page.', 'rooms.standard.page.'];
-            foreach ($prefixes as $prefix) {
-                // Clear pages 1-10 (reasonable upper bound)
-                for ($i = 1; $i <= 10; $i++) {
-                    Cache::forget("{$prefix}{$i}");
+            // Clear consolidated room cache keys (new pattern: rooms.all.{pp}.{sp}.{ep})
+            // Also clear legacy keys in case of cache overlap during transition
+            for ($i = 1; $i <= 5; $i++) {
+                for ($j = 1; $j <= 5; $j++) {
+                    for ($k = 1; $k <= 5; $k++) {
+                        Cache::forget("rooms.all.{$i}.{$j}.{$k}");
+                    }
                 }
             }
         };

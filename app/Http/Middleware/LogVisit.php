@@ -2,7 +2,6 @@
 
 namespace App\Http\Middleware;
 
-use App\Jobs\LogVisitJob;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -11,7 +10,8 @@ class LogVisit
 {
     /**
      * Handle an incoming request.
-     * Dispatches visit logging to a queued job to avoid blocking the user.
+     * Logs visits AFTER the response is sent using afterResponse() —
+     * completely non-blocking, no queue worker needed on shared hosting.
      */
     public function handle(Request $request, Closure $next): Response
     {
@@ -25,16 +25,23 @@ class LogVisit
 
         $response = $next($request);
 
-        // Dispatch job for asynchronous logging
-        LogVisitJob::dispatch([
+        // Capture data before closure (Request object may not be available after response)
+        $visitData = [
             'ip_address' => $request->ip(),
-            'url' => $request->fullUrl(),
+            'url'        => $request->fullUrl(),
             'user_agent' => substr((string) $request->userAgent(), 0, 500),
-            'user_id' => $request->user()?->id,
-            'meta' => [
-                'referer' => $request->header('referer'),
-            ],
-        ]);
+            'user_id'    => $request->user()?->id,
+            'meta'       => ['referer' => $request->header('referer')],
+        ];
+
+        // Runs AFTER the HTTP response is delivered — zero blocking latency
+        dispatch(function () use ($visitData) {
+            try {
+                \App\Models\Visit::create($visitData);
+            } catch (\Throwable $e) {
+                report($e);
+            }
+        })->afterResponse();
 
         return $response;
     }

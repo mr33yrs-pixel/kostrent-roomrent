@@ -19,7 +19,7 @@ class VisitsChart extends ChartWidget
     protected function getData(): array
     {
         // Cache only raw data arrays, NOT closures or objects.
-        $data = Cache::remember('admin_visits_chart', 300, function () {
+        $data = Cache::remember('admin_visits_chart', 3600, function () {
             $startDate = now()->subDays(30)->startOfDay();
             $endDate = now()->endOfDay();
 
